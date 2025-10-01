@@ -4,7 +4,6 @@ set -Eeuo pipefail
 
 LOG_DIR="${HOME}/myworks/log"
 
-echo "$LOG_DIR"
 
 mkdir -p "$LOG_DIR"
 
