@@ -1,0 +1,5 @@
+# if present, /etc/cron.allow lists approved users; cron.deny lists blocked.
+
+sudo sh -c 'test -f /etc/cron.allow && cat /etc/cron.allow || echo "(no /etc/cron.allow)"'
+sudo sh -c 'test -f /etc/cron.deny && cat /etc/cron.deny || echo "(no /et/cron.deny)"'
+
