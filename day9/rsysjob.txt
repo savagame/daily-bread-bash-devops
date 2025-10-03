@@ -1,0 +1,16 @@
+# Demo: create a system cron file (needs sudo). NOTE: format includes USER field
+
+cat | sudo tee /etc/cron.d/demo-system-job >/dev/null <<'CRON'
+SHELL=/usr/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+* * * * * root date >> /var/log/demo-system-job.log
+CRON
+
+sudo run-parts --test /etc/cron.d/ >/dev/null || true
+
+sudo run-parts --test /etc/cron.d/ >/dev/null ||true
+sleep 65 && sudo tail -n 3 /var/log/demo-system-job.log
+sudo rm -f /etc/cron.d/demo-system-job.log
+
+
